@@ -1,0 +1,29 @@
+ul{
+     list-style-type:none;
+}
+li{
+     border-width: 3rem;
+}
+.app{
+
+}
+
+.status{
+     width: 10px;
+     height: 10px;
+     background-color: #c0392b;
+     display: block;
+     margin: 8px 10px 0 0;
+     float: left;
+     border-radius: 50%;
+     &.checked-in{
+          background: #2ecc71;
+     }
+}
+
+
+//   SAME AS LINE 12
+// .status.checked-in{
+//      background: #2ecc71;
+// }
+
