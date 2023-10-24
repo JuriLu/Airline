@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Passenger } from '../../interfaces/passenger.interface';
 import { TestBed } from '@angular/core/testing';
 
@@ -9,57 +9,65 @@ import { TestBed } from '@angular/core/testing';
   templateUrl: './passenger-dashboard.component.html',
   styleUrls: ['./passenger-dashboard.component.scss']
 })
-export class PassengerDashboardComponent {
+export class PassengerDashboardComponent implements OnInit {
 
-  passengers: Passenger[] = [
-  {
-    id:1,
-    fullname: 'Stephen',
-    checkedIn: true,
-    checkInDate: 1687501476000,
-    children:[
-      {
-        name:'Jasmine',
-        age:4
-    }]
-  },
-  {
-    id:2,
-    fullname: 'Rose',
-    checkedIn: false,
-    checkInDate: 11697490148000  
-  },
-  {
-    id:3,
-    fullname: 'James',
-    checkedIn: true,
-    checkInDate: 1702581969000,
-    children:[
-      {
-        name:'David',
-        age:5
-    }] 
+  passengers: Passenger[] = []
 
-  },
-  {
-    id:4,
-    fullname: 'Louise',
-    checkedIn: true,
-    checkInDate: 1684349763000 
-
-  },
-  {
-    id:5,
-    fullname: 'Tina',
-    checkedIn: false,
-    checkInDate: 1687857663000,
-    children:[
-      {
-        name:'Julia',
-        age:6
-    }] 
+  constructor(){
 
   }
-  ]
+
+  ngOnInit(): void {
+    this.passengers = [
+      {
+        id:1,
+        fullname: 'Stephen',
+        checkedIn: true,
+        checkInDate: 1687501476000,
+        children:[
+          {
+            name:'Jasmine',
+            age:4
+        }]
+      },
+      {
+        id:2,
+        fullname: 'Rose',
+        checkedIn: false,
+        checkInDate: 11697490148000  
+      },
+      {
+        id:3,
+        fullname: 'James',
+        checkedIn: true,
+        checkInDate: 1702581969000,
+        children:[
+          {
+            name:'David',
+            age:5
+        }] 
+    
+      },
+      {
+        id:4,
+        fullname: 'Louise',
+        checkedIn: true,
+        checkInDate: 1684349763000 
+    
+      },
+      {
+        id:5,
+        fullname: 'Tina',
+        checkedIn: false,
+        checkInDate: 1687857663000,
+        children:[
+          {
+            name:'Julia',
+            age:6
+        }] 
+    
+      }
+    ]
+  }
 
 }
