@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Passenger } from '../../interfaces/passenger.interface';
 
 @Component({
   selector: 'app-passenger-detail',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class PassengerDetailComponent {
 
+constructor(){}
 }
