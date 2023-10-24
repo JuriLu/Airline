@@ -70,12 +70,22 @@ export class PassengerDashboardComponent implements OnInit {
     ]
   }
 
-  handleRemove(event:Event){
+  handleRemove(event:Passenger){
     console.log('Delete Event',event)
+    this.Passengers = this.Passengers.filter((passenger:Passenger) => {
+      return passenger.id !== event.id
+    })
   }
 
-  handleEdit(event:Event){
-    console.log('Edidt Event',event)
+  handleEdit(event:Passenger){
+    this.Passengers = this.Passengers.map((passenger: Passenger) => {
+      if(passenger.id === event.id){
+        passenger = Object.assign({},passenger,event)  // Merges the changes coming from the Output to our Current Array
+      }
+
+      return passenger
+    })
+    console.log('Edited Passengers',this.Passengers)
 
   }
 
