@@ -10,3 +10,24 @@
           background: #2ecc71;
      }
 }
+
+.editName{
+     padding: 0.4rem;
+     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.2);
+     border-radius: 0.5rem;
+}
+
+button{
+     background-color: rgba(148, 0, 148,0.80) !important;
+     border: rgba(148, 0, 148,0.80) !important;
+     transition : 0.25s;
+
+}
+
+button:hover{
+     background-color: rgb(97, 0, 97) !important;
+     border: rgb(97, 0, 97) !important;
+     transform: scale(1.1,1.1) !important;
+     transition: 0.25s;
+}
+

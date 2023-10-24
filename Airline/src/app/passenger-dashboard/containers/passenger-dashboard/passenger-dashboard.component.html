@@ -12,7 +12,11 @@
            [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
           *ngFor="let passenger of Passengers" 
           >
-          <app-passenger-detail  [details]="passenger"></app-passenger-detail>
+          <app-passenger-detail  
+          [detail]="passenger"
+          (remove)="handleRemove($event)"
+          (edit)="handleEdit($event)"
+          ></app-passenger-detail>
           </li>
      </ul>
 </div>
