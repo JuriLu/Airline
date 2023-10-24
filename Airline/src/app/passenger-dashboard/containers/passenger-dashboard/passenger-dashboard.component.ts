@@ -11,14 +11,14 @@ import { TestBed } from '@angular/core/testing';
 })
 export class PassengerDashboardComponent implements OnInit {
 
-  passengers: Passenger[] = []
+  Passengers: Passenger[] = []
 
   constructor(){
 
   }
 
   ngOnInit(): void {
-    this.passengers = [
+    this.Passengers = [
        {
     id:1,
     fullname: 'Stephen',

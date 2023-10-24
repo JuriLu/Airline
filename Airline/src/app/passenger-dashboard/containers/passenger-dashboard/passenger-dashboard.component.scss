@@ -1,29 +1,13 @@
-ul{
-     list-style-type:none;
-}
+ul{list-style-type:none;}
 li{
      border-width: 3rem;
+     transition: 0.25s;
+     box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.2);
 }
-.app{
-
+li:hover{
+     cursor: pointer;
+     box-shadow: 10px 12px 11px rgba(0, 0, 0, 0.2);
+     transform: scale3d(1.05,1.05,1.05);
+     transition: 0.25s;
 }
-
-.status{
-     width: 10px;
-     height: 10px;
-     background-color: #c0392b;
-     display: block;
-     margin: 8px 10px 0 0;
-     float: left;
-     border-radius: 50%;
-     &.checked-in{
-          background: #2ecc71;
-     }
-}
-
-
-//   SAME AS LINE 12
-// .status.checked-in{
-//      background: #2ecc71;
-// }
-
+.app{}

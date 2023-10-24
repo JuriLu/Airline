@@ -1,52 +1,18 @@
 <div class="container mx-0 px-5 col-4 mt-5 app">
+          <!-- PASSENGER COUNTER -->
      <div class="row  mb-5">
-          <app-passenger-detail class="col-md-6"></app-passenger-detail>
-          <app-passenger-count class="col-md-6" [items]="passengers"></app-passenger-count>
+          <app-passenger-count class="col-md-6" [items]="Passengers"></app-passenger-count>
      </div>
      
      <h3>Airline Passengers</h3>
      <ul>
           <!-- PASSENGER CARD -->
           <li 
-          class="mb-3
-           p-3
-           border 
-           border-2
-           border-primary 
-           rounded-4" 
+          class="mb-3 p-3 border border-2 border-primary rounded-4" 
            [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
-          *ngFor="let passenger of passengers; 
-          let i = index">
-
-          <!--  STATUS -->
-             <span class="status" 
-                  [ngClass]=" { 
-                  'checked-in': passenger.checkedIn,  
-                  'checked-out': !passenger.checkedIn
-                  }"
-                  
-             ></span>
-          <!-- NAME -->
-             <span
-              class="my-0 text-white p-2"
-              [ngStyle]="{
-               backgroundColor:(passenger.checkedIn ? '#2ecc71':'#c0392b'),
-               borderRadius:'0.7rem'
-             }">
-             {{ i + 1 }}: {{passenger.fullname}}</span>
-             
-          <!-- OTHER DATA -->
-              <div class="container mt-2 mx-3">
-                    <div class="date">
-                        {{ 'Check in date'}}: <span class="fw-bold">{{ passenger.checkInDate ? (passenger.checkInDate | date:'longDate') : 'Not checked In' }}</span>
-                    </div>
-                    <div class="children">
-                         {{ 'Children' }}: <span class="fw-bold">{{ passenger.children?.length || 0}}</span>
-                    </div>
-                    <div class="isCheckedIn">
-                         {{ 'Check In' }}: <span class="fw-bold" [ngStyle]="{color:(passenger.checkedIn ? '#2ecc71':'#c0392b')}">{{ passenger.checkedIn ? 'Yes' : "No"}}</span>
-                    </div>
-              </div>
+          *ngFor="let passenger of Passengers" 
+          >
+          <app-passenger-detail  [details]="passenger"></app-passenger-detail>
           </li>
      </ul>
 </div>

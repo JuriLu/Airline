@@ -7,6 +7,7 @@ import { Passenger } from '../../interfaces/passenger.interface';
   styleUrls: ['./passenger-detail.component.scss']
 })
 export class PassengerDetailComponent {
+  @Input() details!: Passenger
 
 constructor(){}
 }
