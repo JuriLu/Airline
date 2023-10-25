@@ -7,8 +7,7 @@
      }"
 
 ></span>
-<!-- NAME -->
-     
+     <!-- FIRST NAME AND LAST NAME WITH SPLIT -->
      <span
           *ngIf="!editing"
           class="my-0 text-white p-2"
@@ -16,8 +15,9 @@
           backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),
           borderRadius:'0.7rem'
           }"> 
-          {{detail.fullname}}
+          {{detail.fullname.split(" ")[0]}} <span class="fw-bold">{{detail.fullname.split(" ")[1]}}</span>
      </span>
+     <!-- INPUT EDIT NAME -->
      <div>
           <input
           class="editName"
@@ -39,6 +39,7 @@
   <div class="children">
        {{ 'Children' }}: <span class="fw-bold">{{ detail.children?.length || 0}}</span>
   </div>
+  <!-- BUTTONS EDIT AND DELETE -->
   <div class="isCheckedIn d-flex flex-row">
           {{ 'Check In'}}: <span class="fw-bold ms-1" [ngStyle]="{color: (detail.checkedIn ? '#2ecc71':'#c0392b')}">{{detail.checkedIn ? " Yes" : " No"}}</span>
           <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit()"> {{editing? 'Done':'Edit'}} </button>       

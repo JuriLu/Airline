@@ -19,50 +19,50 @@ export class PassengerDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.Passengers = [
-       {
+  {
     id:1,
-    fullname: 'Stephen',
+    fullname: 'Stephen Curry',
     checkedIn: true,
     checkInDate: 1687501476000,
     children:[
       {
-        name:'Jasmine',
+        name:'Jasmine Curry',
         age:4
     }]
   },
   {
     id:2,
-    fullname: 'Rose',
+    fullname: 'Rose Chillingham',
     checkedIn: false,
     checkInDate: 11697490148000  
   },
   {
     id:3,
-    fullname: 'James',
+    fullname: 'James Brown',
     checkedIn: true,
     checkInDate: 1702581969000,
     children:[
       {
-        name:'David',
+        name:'David Brown',
         age:5
     }] 
 
   },
   {
     id:4,
-    fullname: 'Louise',
+    fullname: 'Louise Sumon',
     checkedIn: true,
     checkInDate: 1684349763000 
 
   },
   {
     id:5,
-    fullname: 'Tina',
+    fullname: 'Tina Craig',
     checkedIn: false,
     checkInDate: 1687857663000,
     children:[
       {
-        name:'Julia',
+        name:'Julia Craig',
         age:6
     }] 
 
@@ -86,7 +86,6 @@ export class PassengerDashboardComponent implements OnInit {
       return passenger
     })
     console.log('Edited Passengers',this.Passengers)
-
   }
 
 }
