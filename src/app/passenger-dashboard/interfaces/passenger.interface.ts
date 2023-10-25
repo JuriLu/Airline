@@ -5,5 +5,6 @@ export interface Passenger {
      fullname:string,
      checkedIn:boolean
      checkInDate?: number
-     children?: Child[]
+     children?: Child[],
+     baggage?:string
    }
