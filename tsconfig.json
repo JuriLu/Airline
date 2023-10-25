@@ -14,6 +14,9 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "paths": {
+      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
+    },
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
