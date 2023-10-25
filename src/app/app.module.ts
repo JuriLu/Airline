@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashboard.module';
+import { PassengerViewComponent } from './passenger-dashboard/containers/passenger-view/passenger-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PassengerViewComponent
   ],
   imports: [
     //ng Modules
