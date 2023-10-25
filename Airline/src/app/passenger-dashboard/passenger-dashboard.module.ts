@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './routes';
 import { PassengerDetailComponent } from './components/passenger-detail/passenger-detail.component';
 import { PassengerCountComponent } from './components/passenger-count/passenger-count.component';
+import {HttpClientModule} from "@angular/common/http";
+
 
 
 
@@ -16,7 +18,8 @@ import { PassengerCountComponent } from './components/passenger-count/passenger-
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+    HttpClientModule
   ]
 })
 export class PassengerDashboardModule { }
