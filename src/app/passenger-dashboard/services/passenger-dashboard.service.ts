@@ -27,7 +27,7 @@ export class PassengerDashboardService {
   }
 
 
-  getPassenger(id:number):Observable<Passenger> {
+  getPassenger(id:string):Observable<Passenger> {
     return this.http.get<Passenger>(API.HOST + API.PASSENGER + `/${id}`)
   }
 }
