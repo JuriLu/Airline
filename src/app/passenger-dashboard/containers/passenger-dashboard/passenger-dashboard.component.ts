@@ -3,6 +3,7 @@ import { Passenger } from '../../interfaces/passenger.interface';
 import { TestBed } from '@angular/core/testing';
 import { PassengerDashboardService } from '../../services/passenger-dashboard.service';
 import { EMPTY, Subscription, catchError } from 'rxjs';
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 
@@ -17,7 +18,9 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = []
 
   constructor(
-    private passengerService :PassengerDashboardService
+    private passengerService :PassengerDashboardService,
+    private router:Router,
+    private route:ActivatedRoute
   ){
 
   }
@@ -71,8 +74,12 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
       })
     })
     )
-    
+
     console.log('Edited Passengers',this.Passengers)
+  }
+
+  showDialog(id:number) {
+    this.router.navigate([id],{relativeTo:this.route})
   }
 
 }

@@ -1,1 +1,10 @@
-<p>passenger-view works!</p>
+<p-dialog
+  header="Header"
+  [(visible)]="visible"
+  [style]="{width: '50vw'}"
+  (onHide)="navBack()"
+>
+        <div *ngIf="passenger$ | async as data">
+            <p>{{data.fullname}}</p>
+          </div>
+</p-dialog>
