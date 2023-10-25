@@ -21,7 +21,9 @@ export class PassengerDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Passengers = this.passengerService.getPassengers()
+    this.passengerService.getPassengers().subscribe((response:Passenger[])=>{
+      this.Passengers = response
+    })
   }
 
   handleRemove(event:Passenger){
