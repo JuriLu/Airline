@@ -15,11 +15,11 @@ export class PassengerDetailComponent {
 
   constructor(){}
 
-  onNameChange(value: string) {
+  onNameChange(value: string):void {
     this.detail.fullname = value
   }
 
-  toggleEdit(event:Event){
+  toggleEdit(event:Event):void{
     event.stopPropagation()  // stopPropagation function => **
     if(this.editing){
       this.edit.emit(this.detail)
@@ -28,13 +28,14 @@ export class PassengerDetailComponent {
 
   }
 
-  onRemove(){
+  onRemove(event:Event):void{
+      event.stopPropagation()
       this.remove.emit(this.detail)
   }
 
 }
 
-//** Toggle edit button is inside this component, this component is inside li element in passenger-dashboard comonent
+// ** Toggle edit button is inside this component, this component is inside li element in passenger-dashboard comonent
 //    both li and this button are clickable with their own function when clicked, li opens passenger-view component
 //    and toggleEdit edits the name in this component. When button clicked , the click function in li is also
 //    triggered because theoretically that is also clicked too. stopPropagation stops that

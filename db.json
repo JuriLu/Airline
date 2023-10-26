@@ -1,16 +1,38 @@
 {
   "passengers": [
     {
+      "id": 1,
+      "fullname": "Ingram Triggs",
+      "checkedIn": true,
+      "checkInDate": 1673906841000
+    },
+    {
       "id": 2,
-      "fullname": "Rose Chillingham",
+      "fullname": "Shanae Nicholls",
+      "checkedIn": true,
+      "checkInDate": 1683394326000
+    },
+    {
+      "id": 3,
+      "fullname": "Letitia Tyson",
       "checkedIn": false,
-      "checkInDate": 1688612589000
+      "checkInDate": 1684349763000
     },
     {
       "id": 4,
-      "fullname": "Sarah Sumon",
-      "checkedIn": true,
-      "checkInDate": 1684349763000
+      "fullname": "Beatrix Rayne",
+      "checkedIn": false,
+      "checkInDate": 1674948594000,
+      "children": [
+        {
+          "name": "Alva Rayne",
+          "age": 13
+        },
+        {
+          "name": "Asia Rayne",
+          "age": 17
+        }
+      ]
     },
     {
       "id": 5,
@@ -25,6 +47,34 @@
         {
           "name": "James Craig",
           "age": 11
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "fullname": "Tina Craig",
+      "checkedIn": true,
+      "checkInDate": 1674803859000,
+      "children": [
+        {
+          "name": "Julia Craig",
+          "age": 6
+        },
+        {
+          "name": "James Craig",
+          "age": 11
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "fullname": "Kenzie Howse",
+      "checkedIn": false,
+      "checkInDate": 1680504810000,
+      "children": [
+        {
+          "name": "Steven Howse",
+          "age": 15
         }
       ]
     }

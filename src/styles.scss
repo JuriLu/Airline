@@ -2,3 +2,11 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+
+body{
+  background-image: linear-gradient(
+      rgba(255,255,255,0.65),
+      rgba(255,255,255,0.65)
+  ),
+      url("https://source.unsplash.com/2400x1200/?airport");
+}

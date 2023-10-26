@@ -43,6 +43,6 @@
   <div class="isCheckedIn d-flex flex-row">
           {{ 'Check In'}}: <span class="fw-bold ms-1" [ngStyle]="{color: (detail.checkedIn ? '#2ecc71':'#c0392b')}">{{detail.checkedIn ? " Yes" : " No"}}</span>
           <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit($event)"> {{editing? 'Done':'Edit'}} </button>
-          <button class="btn btn-sm btn-primary ms-1" (click)="onRemove()"> <i class="bi bi-trash2-fill"></i></button>
+          <button class="btn btn-sm btn-primary ms-1" (click)="onRemove($event)"> <i class="bi bi-trash2-fill"></i></button>
      </div>
 </div>
