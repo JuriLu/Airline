@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {PassengerDashboardService} from '../../services/passenger-dashboard.service';
 import {Passenger} from '../../interfaces/passenger.interface';
 import {ActivatedRoute, Data, Router} from "@angular/router";
 import {Child} from "../../interfaces/child.interface";
@@ -16,12 +15,9 @@ export class PassengerViewComponent implements OnInit {
   Children:Child[] = []
 
   constructor(
-    private passengerService: PassengerDashboardService,
     private router:Router,
     private activatedRoute:ActivatedRoute
-    ){
-
-  }
+    ){}
 
   ngOnInit(): void {
     this.showingDetails()
@@ -31,8 +27,8 @@ export class PassengerViewComponent implements OnInit {
     this.router.navigate(['../'])
   }
 
-  showingDetails(){
-    this.activatedRoute.data.subscribe((data:Data):void=>{
+  showingDetails():void{
+    this.activatedRoute.data.subscribe((data:Data | any):void=>{
       this.passenger = data['passenger']
       this.passenger.children ? this.Children = this.passenger.children : []
       console.log(data)

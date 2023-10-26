@@ -27,5 +27,9 @@ export const ROUTES: Route[] = [
       },
       ]
   },
+  {
+    path:'**',
+    component:PassengerDashboardComponent
+  }
 
 ]
