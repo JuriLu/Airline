@@ -1,8 +1,8 @@
 <!--  STATUS -->
 
-<span class="status" 
-     [ngClass]=" { 
-     'checked-in': detail.checkedIn,  
+<span class="status"
+     [ngClass]=" {
+     'checked-in': detail.checkedIn,
      'checked-out': !detail.checkedIn
      }"
 
@@ -14,7 +14,7 @@
           [ngStyle]="{
           backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),
           borderRadius:'0.7rem'
-          }"> 
+          }">
           {{detail.fullname.split(" ")[0]}} <span class="fw-bold">{{detail.fullname.split(" ")[1]}}</span>
      </span>
      <!-- INPUT EDIT NAME -->
@@ -23,8 +23,8 @@
           class="editName"
           [ngStyle]="{
                border: (detail.checkedIn ? '0.1rem solid #2ecc71':'0.1rem solid #c0392b')}"
-          *ngIf="editing" 
-          type="text" 
+          *ngIf="editing"
+          type="text"
           [value]="detail.fullname"
           (input)="onNameChange(name.value)"
           #name
@@ -42,7 +42,7 @@
   <!-- BUTTONS EDIT AND DELETE -->
   <div class="isCheckedIn d-flex flex-row">
           {{ 'Check In'}}: <span class="fw-bold ms-1" [ngStyle]="{color: (detail.checkedIn ? '#2ecc71':'#c0392b')}">{{detail.checkedIn ? " Yes" : " No"}}</span>
-          <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit()"> {{editing? 'Done':'Edit'}} </button>       
-          <button class="btn btn-sm btn-primary ms-1" (click)="onRemove()"> <i class="bi bi-trash2-fill"></i></button>       
+          <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit($event)"> {{editing? 'Done':'Edit'}} </button>
+          <button class="btn btn-sm btn-primary ms-1" (click)="onRemove()"> <i class="bi bi-trash2-fill"></i></button>
      </div>
 </div>
