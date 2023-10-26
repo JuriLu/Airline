@@ -12,12 +12,9 @@ export class PassengerFormComponent {
   isEdit: boolean = true;
 
   constructor(
-    private passengerService: PassengerDashboardService,
     private router:Router,
-    private route:ActivatedRoute
   ) {
   }
-
   navBack():void{
     this.router.navigate(['../'])
   }

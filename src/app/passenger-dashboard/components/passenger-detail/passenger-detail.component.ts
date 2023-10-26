@@ -32,7 +32,6 @@ export class PassengerDetailComponent {
       event.stopPropagation()
       this.remove.emit(this.detail)
   }
-
 }
 
 // ** Toggle edit button is inside this component, this component is inside li element in passenger-dashboard comonent
