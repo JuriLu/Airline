@@ -1,10 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Passenger } from '../../interfaces/passenger.interface';
-import { TestBed } from '@angular/core/testing';
-import { PassengerDashboardService } from '../../services/passenger-dashboard.service';
-import { EMPTY, Subscription, catchError } from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Passenger} from '../../interfaces/passenger.interface';
+import {PassengerDashboardService} from '../../services/passenger-dashboard.service';
+import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from "@angular/router";
-
+import {RxJS_CatchError} from "../../reusablePipes/catchError";
 
 
 @Component({
@@ -28,13 +27,9 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.passengerService.getPassengers()
     .pipe(
-      catchError((err)=>{
-      console.log('ERROR IN GET: ',err)
-      return EMPTY
-    }))
-    .subscribe((response:Passenger[])=>{
-      this.Passengers = response
-    })
+      RxJS_CatchError('ERROR IN FETCHING DATA - PASSENGER-DASHBOARD-COMPONENT')
+    )
+    .subscribe((response:Passenger[] | any):void=>{this.Passengers = response})
     )
   }
 
@@ -46,10 +41,8 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
     console.log('Delete Event',event)
     this.subscriptions.push(this.passengerService.deletePassenger(event)
     .pipe(
-      catchError((err)=>{
-      console.log('ERROR IN DELETE',err)
-      return EMPTY
-    }))
+      RxJS_CatchError('ERROR IN DELETE')
+    )
     .subscribe(()=>{
       this.Passengers = this.Passengers.filter((passenger:Passenger) => {
         return passenger.id !== event.id
@@ -60,12 +53,10 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
 
   handleEdit(event:Passenger){
     this.subscriptions.push( this.passengerService.updatePassenger(event)
-    .pipe(
-      catchError((err)=>{
-      console.log('ERROR IN UPDATE',err)
-      return EMPTY
-    }))
-    .subscribe((response:Passenger)=>{
+        .pipe(
+          RxJS_CatchError('ERROR IN UPDATE')
+        )
+      .subscribe((response:Passenger | any)=>{
       this.Passengers = this.Passengers.map((passenger: Passenger) => {
         if(passenger.id === event.id){
           passenger = Object.assign({},passenger,response)  // Merges the changes coming from the Output to our Current Array

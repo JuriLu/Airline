@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { PassengerDashboardService } from '../../services/passenger-dashboard.service';
-import { Passenger } from '../../interfaces/passenger.interface';
-import {Observable, map, switchMap, tap} from 'rxjs';
-import {ActivatedRoute, ParamMap,Router} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {PassengerDashboardService} from '../../services/passenger-dashboard.service';
+import {Passenger} from '../../interfaces/passenger.interface';
+import {ActivatedRoute, Data, Router} from "@angular/router";
 import {Child} from "../../interfaces/child.interface";
 
 @Component({
@@ -12,38 +11,31 @@ import {Child} from "../../interfaces/child.interface";
 })
 export class PassengerViewComponent implements OnInit {
 
-  passenger$!:Observable<Passenger>;
+  passenger!:Passenger;
   visible: boolean = true;
   Children:Child[] = []
 
   constructor(
     private passengerService: PassengerDashboardService,
     private router:Router,
-    private route:ActivatedRoute
+    private activatedRoute:ActivatedRoute
     ){
 
   }
 
   ngOnInit(): void {
-    this.showingDetails().subscribe()
+    this.showingDetails()
   }
 
   navBack():void{
     this.router.navigate(['../'])
   }
 
-  showingDetails():Observable<Passenger>{
-    return this.route.paramMap.pipe(
-      switchMap((p:ParamMap)=>{
-        let passengerId:string = p.get('passengerId') as string
-        return this.passenger$ = this.passengerService.getPassenger(passengerId).pipe(
-          map((response:Passenger)=> { return response }),
-        )
-      }),
-      tap((response:Passenger):void=>{
-        if (response.children)
-          this.Children = response.children
-      })
-    )
+  showingDetails(){
+    this.activatedRoute.data.subscribe((data:Data):void=>{
+      this.passenger = data['passenger']
+      this.passenger.children ? this.Children = this.passenger.children : []
+      console.log(data)
+    })
   }
 }

@@ -4,7 +4,7 @@
   [style]="{width: '35vw'}"
   (onHide)="navBack()"
 >
-        <div *ngIf="passenger$ | async as data">
+        <div *ngIf="passenger">
           <div class="row justify-content-center">
             <div class="col-md-4">
               <p>ID: </p>
@@ -14,10 +14,10 @@
               <p>CHILDREN: </p>
             </div>
             <div class="col-md-4">
-              <p>{{data.id}}</p>
-              <p>{{data.fullname}}</p>
-              <p>{{data.checkedIn ? 'YES':'NO'}}</p>
-              <p>{{data.checkInDate ? (data.checkInDate | date) : 'No check in '}}</p>
+              <p>{{passenger.id}}</p>
+              <p>{{passenger.fullname}}</p>
+              <p>{{passenger.checkedIn ? 'YES':'NO'}}</p>
+              <p>{{passenger.checkInDate ? (passenger.checkInDate | date) : 'No check in '}}</p>
               <div class="row" *ngIf="Children.length; else noChildren">
                 <ul *ngFor="let child of Children">
                   <li class="rounded-4" >{{'Name:' + child.name}}</li>
