@@ -1,6 +1,7 @@
 import { Route } from "@angular/router";
 import { PassengerDashboardComponent } from "./containers/passenger-dashboard/passenger-dashboard.component";
-import { PassengerViewComponent } from "./containers/passenger-view/passenger-view.component";
+import {PassengerViewComponent} from "./components/passenger-view/passenger-view.component";
+import {PassengerFormComponent} from "./components/passenger-form/passenger-form.component";
 
 export const ROUTES: Route[] = [
   {
@@ -15,6 +16,10 @@ export const ROUTES: Route[] = [
       {
         path:':passengerId',
         component:PassengerViewComponent
+      },
+      {
+        path:'new',
+        component:PassengerFormComponent
       }
       ]
   },

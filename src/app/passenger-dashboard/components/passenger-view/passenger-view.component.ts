@@ -28,22 +28,21 @@ export class PassengerViewComponent implements OnInit {
     this.showingDetails().subscribe()
   }
 
-  navBack(){
+  navBack():void{
     this.router.navigate(['../'])
   }
 
   showingDetails():Observable<Passenger>{
     return this.route.paramMap.pipe(
       switchMap((p:ParamMap)=>{
-        let passengerId = p.get('passengerId') as string
+        let passengerId:string = p.get('passengerId') as string
         return this.passenger$ = this.passengerService.getPassenger(passengerId).pipe(
           map((response:Passenger)=> { return response }),
         )
       }),
-      tap((response:Passenger)=>{
+      tap((response:Passenger):void=>{
         if (response.children)
           this.Children = response.children
-        console.log(this.Children)
       })
     )
   }
