@@ -14,13 +14,13 @@ export const ROUTES: Route[] = [
     component:PassengerDashboardComponent,
     children:[
       {
+        path:'new',
+        component:PassengerFormComponent
+      },
+      {
         path:':passengerId',
         component:PassengerViewComponent
       },
-      {
-        path:'new',
-        component:PassengerFormComponent
-      }
       ]
   },
 

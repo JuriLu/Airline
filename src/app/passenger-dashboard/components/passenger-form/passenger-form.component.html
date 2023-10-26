@@ -1,1 +1,33 @@
-<p>passenger-form works!</p>
+<p-dialog
+  header="NEW PASSENGER FORM"
+  [(visible)]="visible"
+  [style]="{width: '35vw'}"
+  (onHide)="navBack()"
+>
+  <div *ngIf="isEdit">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <p>ID: </p>
+        <p>FULLNAME: </p>
+        <p>CHECKED IN:  </p>
+        <p>CHECKIN DATE: </p>
+        <p>CHILDREN: </p>
+      </div>
+      <div class="col-md-4">
+        <input>
+        <input>
+        <input>
+        <input>
+<!--        <div class="row" *ngIf="Children.length; else noChildren">-->
+<!--          <ul *ngFor="let child of Children">-->
+<!--            <li class="rounded-4" >{{'Name:' + child.name}}</li>-->
+<!--            <li class="rounded-4" >{{'Age:' + child.age}}</li>-->
+<!--          </ul>-->
+<!--        </div>-->
+        <ng-template #noChildren>
+          <p>No Children</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</p-dialog>

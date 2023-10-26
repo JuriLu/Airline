@@ -3,8 +3,11 @@
      <div class="row  mb-5">
           <app-passenger-count class="col-md-6" [items]="Passengers"></app-passenger-count>
      </div>
-
-     <h3>Airline Passengers</h3>
+          <!--  HEADER AND NEW BTN NEXT TO EACH OTHER-->
+      <div CLASS="d-flex flex-row">
+        <h3>Airline Passengers</h3>
+        <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="newPass()"><i class="bi bi-person-plus-fill"></i> Add Passenger</button>
+      </div>
      <ul class="app rounded-4">
           <!-- PASSENGER CARD -->
           <li

@@ -78,8 +78,12 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
     console.log('Edited Passengers',this.Passengers)
   }
 
-  showDialog(id:number) {
+  showDialog(id:number):void {
     this.router.navigate([id],{relativeTo:this.route})
+  }
+
+  newPass():void{
+    this.router.navigate(['new'],{relativeTo:this.route})
   }
 
 }

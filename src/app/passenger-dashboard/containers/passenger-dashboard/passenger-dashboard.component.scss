@@ -22,6 +22,20 @@ li:hover{
   padding-top:1rem
 }
 
+.newButton{
+  background-color: rgba(148, 0, 148,0.80) !important;
+  border: rgba(148, 0, 148,0.80) !important;
+  transition : 0.25s;
+
+}
+
+.newButton:hover{
+  background-color: rgb(97, 0, 97) !important;
+  border: rgb(97, 0, 97) !important;
+  transform: scale(1.1,1.1) !important;
+  transition: 0.25s;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 0.625rem;
