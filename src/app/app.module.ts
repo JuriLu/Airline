@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PassengerDashboardModule} from './passenger-dashboard/passenger-dashboard.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MessageService} from "primeng/api";
+import {PreloadAllModules, RouterModule} from "@angular/router";
+import {MAIN_ROUTES} from "./mainRoutes";
 
 
 @NgModule({
@@ -16,8 +17,7 @@ import {MessageService} from "primeng/api";
         //ANGULAR Modules
         BrowserModule,
         BrowserAnimationsModule,
-        AppRoutingModule,
-
+        RouterModule.forRoot(MAIN_ROUTES ,{preloadingStrategy: PreloadAllModules}),
         //CUSTOM Modules
         PassengerDashboardModule,
     ],
