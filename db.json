@@ -1,20 +1,14 @@
 {
   "passengers": [
     {
-      "id": 1,
-      "fullname": "Ingram Triggs",
-      "checkedIn": true,
-      "checkInDate": 1673906841000
-    },
-    {
       "id": 2,
-      "fullname": "Shanae Nicholas",
+      "fullname": "Shanae test",
       "checkedIn": true,
       "checkInDate": 1683394326000
     },
     {
       "id": 3,
-      "fullname": "Letitia Tyson",
+      "fullname": "Letitia test",
       "checkedIn": false,
       "checkInDate": 1684349763000
     },

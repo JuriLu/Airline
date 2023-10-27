@@ -1,17 +1,48 @@
-import {ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot} from '@angular/router';
-import {delay, Observable} from "rxjs";
+import {ActivatedRouteSnapshot, ResolveFn, Router, RouterStateSnapshot} from '@angular/router';
+import {catchError, delay, EMPTY, Observable, of} from "rxjs";
 import {Passenger} from "../interfaces/passenger.interface";
 import {PassengerDashboardService} from "../services/passenger-dashboard.service";
 import {inject} from "@angular/core";
-import {RxJS_CatchError} from "../reusablePipes/catchError";
+import {MessageService} from "primeng/api";
 
-export const passengerDetailsResolver : ResolveFn<Observable<Passenger>> = (route:ActivatedRouteSnapshot,state: RouterStateSnapshot):Observable<Passenger> | any => {
+export const passengerDetailsResolver : ResolveFn<Observable<Passenger> | boolean> =
+  (route:ActivatedRouteSnapshot,state: RouterStateSnapshot):Observable<Passenger> | any => {
+
+
   const passengerService:PassengerDashboardService = inject(PassengerDashboardService)
+  const router:Router = inject(Router)
+  const messageService:MessageService = inject(MessageService)
+
   let passengerId:string = route.paramMap.get('passengerId') as string
 
-  return passengerService.getPassenger(passengerId).pipe(
-    delay(250),
-    RxJS_CatchError('ERROR IN FETCH - RESOLVER-PASSENGER-DETAILS'),
-  )
+  if ( Number(passengerId) ){   //This check is neccessary so, it will throw an error only the dynamic parameter is a number and its not one of the IDs of the passenger
+    return passengerService.getPassenger(passengerId).pipe(
+      catchError((err)=>{
+        router.navigate(['passengers'])
+        console.log("ERROR IN FETCH - RESOLVER-PASSENGER-DETAILS",err)
+        messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: `PASSENGER DOESN'T EXISTS`
+        })
+        return EMPTY
+      })
+    )
+  } else {
+    // return of().pipe(
+    //   catchError((err)=>{
+        router.navigate(['passengers'])
+        console.log('ID IS NOT NUMBER - RESOLVER-PASSENGER-DETAILS')
+        messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: `WRONG ID FORMAT - CONTACT SUPPORT`
+        })
+        return EMPTY
+    //   })
+    // )
 
+  }
 };
+
+

@@ -3,7 +3,8 @@ import {Passenger} from '../../interfaces/passenger.interface';
 import {PassengerDashboardService} from '../../services/passenger-dashboard.service';
 import {Subscription} from 'rxjs';
 import {ActivatedRoute, Router} from "@angular/router";
-import {RxJS_CatchError} from "../../reusablePipes/catchError";
+import {RxJS_ReusablePipesService} from "../../reusablePipes/RxJS_ReusablePipes.service";
+import {MessageService} from "primeng/api";
 
 
 @Component({
@@ -19,7 +20,9 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
   constructor(
     private passengerService :PassengerDashboardService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private rxJS_ReusablePipesService:RxJS_ReusablePipesService,
+    private messageService:MessageService
   ){
 
   }
@@ -27,7 +30,7 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscriptions.push(this.passengerService.getPassengers()
     .pipe(
-      RxJS_CatchError('ERROR IN FETCHING DATA - PASSENGER-DASHBOARD-COMPONENT')
+      this.rxJS_ReusablePipesService.RxJS_CatchError('ERROR IN FETCH')
     )
     .subscribe((response:Passenger[] | any):void=>{this.Passengers = response})
     )
@@ -37,35 +40,29 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
       this.subscriptions.length > 0 && this.subscriptions.forEach((s:Subscription)=>s.unsubscribe())
   }
 
-  handleRemove(event:Passenger){
-    console.log('Delete Event',event)
+  handleRemove(event:Passenger):void {
     this.subscriptions.push(this.passengerService.deletePassenger(event)
-    .pipe(
-      RxJS_CatchError('ERROR IN DELETE')
-    )
-    .subscribe(()=>{
-      this.Passengers = this.Passengers.filter((passenger:Passenger) => {
-        return passenger.id !== event.id
+      .pipe(
+        this.rxJS_ReusablePipesService.RxJS_CatchError('ERROR IN DELETE')
+      )
+      .subscribe(():void=>{
+        this.Passengers = this.deleteFilter(event)
+        this.successToaster('SUCCESSFUL DELETE')
       })
-    })
     )
   }
 
-  handleEdit(event:Passenger){
-    this.subscriptions.push( this.passengerService.updatePassenger(event)
-        .pipe(
-          RxJS_CatchError('ERROR IN UPDATE')
-        )
-      .subscribe((response:Passenger | any)=>{
-      this.Passengers = this.Passengers.map((passenger: Passenger) => {
-        if(passenger.id === event.id){
-          passenger = Object.assign({},passenger,response)  // Merges the changes coming from the Output to our Current Array
-        }
-        return passenger
-      })
-    })
-    )
+  handleEdit(event:Passenger):void {
 
+    this.subscriptions.push( this.passengerService.updatePassenger(event)
+      .pipe(
+        this.rxJS_ReusablePipesService.RxJS_CatchError('ERROR IN UPDATE')
+      )
+      .subscribe((response:Passenger | any):void=>{
+       this.Passengers =  this.updateFunction(response,event)
+        this.successToaster('SUCCESSFUL UPDATE')
+      })
+    )
     console.log('Edited Passengers',this.Passengers)
   }
 
@@ -73,8 +70,39 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
     this.router.navigate([id],{relativeTo:this.route})
   }
 
-  newPass():void{
+  newPassenger():void{
     this.router.navigate(['new'],{relativeTo:this.route})
+  }
+
+  // test():void{
+  //   this.router.navigate(['test'],{relativeTo:this.route})
+  // }
+
+  // test123():void{
+  //   this.router.navigate(['123'],{relativeTo:this.route})
+  // }
+
+  successToaster(successMessage:string):void{
+    return this.messageService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: successMessage
+    })
+  }
+
+  deleteFilter = (passedEvent:Passenger) => {
+    return this.Passengers.filter((passenger:Passenger):boolean => {
+      return passenger.id !== passedEvent.id
+    })
+  }
+
+  updateFunction = (responsePassenger:Passenger,passedEvent:Passenger) => {
+   return this.Passengers.map((passenger: Passenger) => {
+      if(passenger.id === passedEvent.id){
+        passenger = Object.assign({},passenger,responsePassenger)  // Merges the changes coming from the Output to our Current Array
+      }
+      return passenger
+    })
   }
 
 }

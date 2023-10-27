@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashboard.module';
-import {DialogModule} from "primeng/dialog";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {PassengerDashboardModule} from './passenger-dashboard/passenger-dashboard.module';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MessageService} from "primeng/api";
 
 
 @NgModule({
@@ -13,14 +13,15 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppComponent,
   ],
     imports: [
-        //ng Modules
+        //ANGULAR Modules
         BrowserModule,
         BrowserAnimationsModule,
         AppRoutingModule,
-        //custom Modules
+
+        //CUSTOM Modules
         PassengerDashboardModule,
     ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
