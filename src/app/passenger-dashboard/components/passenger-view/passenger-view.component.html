@@ -3,8 +3,9 @@
   [(visible)]="visible"
   [style]="{width: '35vw'}"
   (onHide)="navBack()"
+  styleClass="container bg-primary"
 >
-        <div *ngIf="passenger">
+        <div  *ngIf="passenger">
           <div class="row justify-content-center">
             <div class="col-md-4">
               <p>ID: </p>

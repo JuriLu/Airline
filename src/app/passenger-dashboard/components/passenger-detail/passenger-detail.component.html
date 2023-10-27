@@ -27,6 +27,7 @@
           type="text"
           [value]="detail.fullname"
           (input)="onNameChange(name.value)"
+          (click)="$event.stopPropagation()"
           #name
           >
      </div>
