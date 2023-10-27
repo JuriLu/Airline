@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Passenger} from '../../interfaces/passenger.interface';
 import {ActivatedRoute, Data, Router} from "@angular/router";
 import {Child} from "../../interfaces/child.interface";
-import {Subscription} from "rxjs";
+import {filter, map, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-passenger-view',
@@ -33,11 +33,20 @@ export class PassengerViewComponent implements OnInit, OnDestroy {
     this.router.navigate(['../'])
   }
 
-  showingDetails():void{
-   this.Data$ = this.activatedRoute.data.subscribe((data:Data | any):void=>{
-      this.passenger = data['passenger']
-      this.passenger.children ? this.Children = this.passenger.children : []
-      console.log(data)
-    })
+  showingDetails():void {
+   this.Data$ = this.activatedRoute.data
+     .pipe(
+       map((data:Data | any ) : Passenger=>{
+          return data['passenger'] as Passenger
+         }
+       ),
+       filter((passenger:Passenger | any)=> {
+         if (passenger) return passenger
+       })
+     )
+     .subscribe((passengerRes:Passenger):void=>{
+      this.passenger = passengerRes
+      this.passenger.children ? this.Children = passengerRes.children as Child[] : []
+     })
   }
 }
