@@ -24,7 +24,7 @@ export const ROUTES: Route[] = [
         resolve:{
           passenger: passengerDetailsResolver
         }
-      },
+        }
       ]
   },
   {

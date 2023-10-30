@@ -74,13 +74,13 @@ export class PassengerDashboardComponent implements OnInit, OnDestroy {
     this.router.navigate(['new'],{relativeTo:this.route})
   }
 
-  // test():void{
-  //   this.router.navigate(['test'],{relativeTo:this.route})
-  // }
+  test():void{
+    this.router.navigate(['test'],{relativeTo:this.route})
+  }
 
-  // test123():void{
-  //   this.router.navigate(['123'],{relativeTo:this.route})
-  // }
+  test123():void{
+    this.router.navigate(['123'],{relativeTo:this.route})
+  }
 
   successToaster(successMessage:string):void{
     return this.messageService.add({

@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MessageService} from "primeng/api";
 import {PreloadAllModules, RouterModule} from "@angular/router";
 import {MAIN_ROUTES} from "./mainRoutes";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -20,6 +21,8 @@ import {MAIN_ROUTES} from "./mainRoutes";
         RouterModule.forRoot(MAIN_ROUTES ,{preloadingStrategy: PreloadAllModules}),
         //CUSTOM Modules
         PassengerDashboardModule,
+        //ANGULAR Material
+        MatProgressBarModule
     ],
   providers: [MessageService],
   bootstrap: [AppComponent]
