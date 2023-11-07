@@ -11,10 +11,10 @@
         <h2>Airline Passengers</h2>
         <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="newPassenger()"><i class="bi bi-person-plus-fill"></i> Add Passenger</button>
       </div>
-     <ul class="app rounded-4">
+     <ul class="app rounded-2">
           <!-- PASSENGER CARD -->
           <li
-            class="mb-3 p-3 border border-2 border-primary rounded-4"
+            class="mb-3 p-3 border border-2 border-primary rounded-2"
            [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
             *ngFor="let passenger of Passengers"
             (click)="showDialog(passenger.id)"
