@@ -21,7 +21,12 @@ body{
 }
 
 html, body { height: 100%; }
+
 body {
   margin: 0;
   font-family: 'Air-America' !important;
+}
+
+.boxShadow{
+  box-shadow: 3px 5px 4px rgba(0, 0, 0, 0.2);
 }

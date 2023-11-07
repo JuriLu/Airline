@@ -11,6 +11,7 @@ import {DialogModule} from "primeng/dialog";
 import {ToastModule} from "primeng/toast";
 import {CardModule} from "primeng/card";
 import {PassengerCardComponent} from "./components/passenger-card/passenger-card.component";
+import {InputTextModule} from "primeng/inputtext";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {PassengerCardComponent} from "./components/passenger-card/passenger-card
     HttpClientModule,
     DialogModule,
     ToastModule,
-    CardModule
+    CardModule,
+    InputTextModule
   ],
   providers:[]
 })
