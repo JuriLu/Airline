@@ -2,13 +2,13 @@
   "passengers": [
     {
       "id": 2,
-      "fullname": "Shanae test",
+      "fullname": "Shanae ankovski",
       "checkedIn": true,
       "checkInDate": 1683394326000
     },
     {
       "id": 3,
-      "fullname": "Letitia test",
+      "fullname": "Letitia White",
       "checkedIn": false,
       "checkInDate": 1684349763000
     },

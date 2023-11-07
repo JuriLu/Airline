@@ -5,11 +5,11 @@ import {Child} from "../../interfaces/child.interface";
 import {filter, map, Subscription} from "rxjs";
 
 @Component({
-  selector: 'app-passenger-view',
-  templateUrl:'./passenger-view.component.html' ,
-  styleUrls: ['./passenger-view.component.scss']
+  selector: 'app-passenger-dialog-detail',
+  templateUrl:'./passenger-dialog-detail.component.html' ,
+  styleUrls: ['./passenger-dialog-detail.component.scss']
 })
-export class PassengerViewComponent implements OnInit, OnDestroy {
+export class PassengerDialogDetailComponent implements OnInit, OnDestroy {
 
   passenger!:Passenger;
   visible: boolean = true;

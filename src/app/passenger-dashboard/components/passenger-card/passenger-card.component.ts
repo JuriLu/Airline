@@ -2,11 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Passenger } from '../../interfaces/passenger.interface';
 
 @Component({
-  selector: 'app-passenger-detail',
-  templateUrl: './passenger-detail.component.html',
-  styleUrls: ['./passenger-detail.component.scss']
+  selector: 'app-passenger-card',
+  templateUrl: './passenger-card.component.html',
+  styleUrls: ['./passenger-card.component.scss']
 })
-export class PassengerDetailComponent {
+export class PassengerCardComponent {
   @Input() detail!: Passenger
   @Output() remove:EventEmitter<any> = new EventEmitter()
   @Output() edit:EventEmitter<any> = new EventEmitter()
@@ -35,6 +35,6 @@ export class PassengerDetailComponent {
 }
 
 // ** Toggle edit button is inside this component, this component is inside li element in passenger-dashboard comonent
-//    both li and this button are clickable with their own function when clicked, li opens passenger-view component
+//    both li and this button are clickable with their own function when clicked, li opens passenger-dialog-detail component
 //    and toggleEdit edits the name in this component. When button clicked , the click function in li is also
 //    triggered because theoretically that is also clicked too. stopPropagation stops that

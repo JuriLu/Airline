@@ -1,6 +1,6 @@
 import { Route } from "@angular/router";
 import { PassengerDashboardComponent } from "./containers/passenger-dashboard/passenger-dashboard.component";
-import {PassengerViewComponent} from "./components/passenger-view/passenger-view.component";
+import {PassengerDialogDetailComponent} from "./components/passenger-dialog-detail/passenger-dialog-detail.component";
 import {PassengerFormComponent} from "./components/passenger-form/passenger-form.component";
 import {passengerDetailsResolver} from "./resolvers/passenger-details.resolver";
 
@@ -20,7 +20,7 @@ export const ROUTES: Route[] = [
       },
       {
         path:':passengerId',
-        component:PassengerViewComponent,
+        component:PassengerDialogDetailComponent,
         resolve:{
           passenger: passengerDetailsResolver
         }

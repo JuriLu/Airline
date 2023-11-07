@@ -17,7 +17,7 @@ export const passengerDetailsResolver : ResolveFn<Observable<Passenger> | boolea
 
   if ( Number(passengerId) ){   //This check is neccessary so, it will throw an error only the dynamic parameter is a number and its not one of the IDs of the passenger
     return passengerService.getPassenger(passengerId).pipe(
-      delay(2000),
+      // delay(500),
       catchError((err)=>{
         router.navigate(['passengers'])
         console.log("ERROR IN FETCH - RESOLVER-PASSENGER-DETAILS",err)
@@ -30,8 +30,6 @@ export const passengerDetailsResolver : ResolveFn<Observable<Passenger> | boolea
       })
     )
   } else {
-    // return of().pipe(
-    //   catchError((err)=>{
         router.navigate(['passengers'])
         console.log('ID IS NOT NUMBER - RESOLVER-PASSENGER-DETAILS')
         messageService.add({
@@ -40,9 +38,6 @@ export const passengerDetailsResolver : ResolveFn<Observable<Passenger> | boolea
           detail: `WRONG ID FORMAT - CONTACT SUPPORT`
         })
         return EMPTY
-    //   })
-    // )
-
   }
 };
 

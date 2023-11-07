@@ -1,5 +1,5 @@
-.test {
-  background-color:blue;
+.bg-custom {
+  background-color:rgba(148, 0, 148,0.80) !important;
 }
 
 ul{list-style-type:none;}
@@ -10,5 +10,9 @@ li{
   padding:0.5rem;
   border: 2px solid rgba(0, 0, 0, 0.2);
   margin-bottom: 5px;
+}
+
+.americana-font{
+  font-family: 'Air-America' !important;
 
 }
