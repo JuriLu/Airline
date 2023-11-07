@@ -8,14 +8,11 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./passenger-form.component.scss']
 })
 export class PassengerFormComponent {
-  visible: boolean = true;
   isEdit: boolean = true;
 
   constructor(
     private router:Router,
   ) {
   }
-  navBack():void{
-    this.router.navigate(['../'])
-  }
+
 }

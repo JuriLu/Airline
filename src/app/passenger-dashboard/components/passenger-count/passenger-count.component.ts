@@ -16,6 +16,8 @@ import { Passenger } from '../../interfaces/passenger.interface';
       position: relative;
       border-radius: 8px;
       box-shadow: 0 0 0 1px rgba(0,0,0,.01);
+      transition: .5s;
+
 
       &::after {
         position: absolute;
@@ -52,7 +54,16 @@ import { Passenger } from '../../interfaces/passenger.interface';
       100% {
         background-position: 200% 50%;
       }
-    }`]
+    }
+
+    .box:hover{
+      cursor: pointer;
+      transform: scale(1.1);
+      color:whitesmoke;
+      transition: .5s;
+    }
+
+  `]
 })
 export class PassengerCountComponent implements OnInit{
   @Input() items!:Passenger[]
