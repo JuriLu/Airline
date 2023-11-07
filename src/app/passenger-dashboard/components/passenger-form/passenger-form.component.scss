@@ -5,6 +5,14 @@
   margin-bottom: 1rem;
 }
 
-input{
-  max-height: 2.5em
+input {
+  max-height: 2.5em;
+}
+
+.flexBasis {
+  flex-basis: 7rem;
+}
+
+small{
+  text-shadow: 3px 5px 4px rgba(0, 0, 0, 0.5);
 }

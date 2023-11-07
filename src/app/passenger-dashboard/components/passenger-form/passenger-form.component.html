@@ -1,19 +1,32 @@
-<div class="container-fluid bg-white py-5">
-  <div class="card flex justify-content-center">
-    <div class="flex flex-column gap-2">
-      <label class="h5" htmlFor="firstname">FirstName: </label>
-      <input class="ms-3" pInputText id="firstname" aria-describedby="username-help"/>
-      <small class="ms-4 shadow" id="firstname-help">Enter passenger first name.</small>
+<!--LARGE CARD THAT HOLDS THE BORDERED FORM-->
+<div class="container-fluid bg-white py-5 rounded-2">
+  <!--  HEADER-->
+  <h3>New Passenger</h3>
+  <!--BORDERED CARD-->
+  <div class="card">
+    <!--FirstName INPUT-->
+    <div class="d-flex flex-row">
+      <label class="h5 flexBasis" htmlFor="firstname">FirstName:</label>
+      <div >
+        <input class="" pInputText id="firstname" aria-describedby="username-help"/>
+        <small class="ms-4" id="firstname-help">Enter passenger first name.</small>
+      </div>
     </div>
-    <div class="mt-3">
-      <label class="h5" htmlFor="lastname">LastName: </label>
-      <input class="ms-3" pInputText id="lastname" aria-describedby="username-help"/>
-      <small class="ms-4 shadow" id="lastname-help">Enter passenger last name.</small>
+    <!--LastName INPUT-->
+    <div class="d-flex flex-row mt-3">
+      <label class="h5 flexBasis" htmlFor="lastname">LastName:</label>
+      <div >
+        <input  pInputText id="lastname" aria-describedby="username-help"/>
+        <small class="ms-4" id="lastname-help">Enter passenger last name.</small>
+      </div>
     </div>
-    <div class="mt-3">
-      <label class="h5 me-3" htmlFor="dob">DOB: </label>
-      <input class="ms-5" pInputText id="dob" aria-describedby="username-help"/>
-      <small class="ms-4 shadow" id="dob-help">Enter passenger date of birth.</small>
+    <!--DOB INPUT-->
+    <div class="d-flex flex-row mt-3">
+      <label class="h5 flexBasis" htmlFor="dob">DOB: </label>
+      <div>
+        <input pInputText id="dob" aria-describedby="username-help"/>
+        <small class="ms-4" id="dob-help">Enter passenger date of birth.</small>
+      </div>
     </div>
   </div>
-  </div>
+</div>
