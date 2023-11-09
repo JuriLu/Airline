@@ -7,15 +7,20 @@
 
 ></span>
      <!-- FIRST NAME AND LAST NAME WITH SPLIT -->
-     <span
-          *ngIf="!editing"
-          class="my-0 text-white p-2 h4"
-          [ngStyle]="{
-          backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),
-          borderRadius:'0.7rem'
-          }">
-          {{detail.fullname.split(" ")[0]}} <span class="fw-bold">{{detail.fullname.split(" ")[1]}}</span>
-     </span>
+<div>
+  @if (!editing) {
+  <span
+  class="my-0 text-white p-2 h4"
+  [ngStyle]="{
+  backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),
+  borderRadius:'0.7rem'
+  }">
+  {{detail.fullname.split(" ")[0]}} <span class="fw-bold">{{detail.fullname.split(" ")[1]}}</span>
+      </span>
+  }
+</div>
+
+
      <!-- INPUT EDIT NAME -->
      <div>
           <input
