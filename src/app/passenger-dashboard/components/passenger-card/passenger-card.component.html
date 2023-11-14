@@ -1,53 +1,43 @@
 <!--  STATUS -->
-<span class="status"
-     [ngClass]=" {
-     'checked-in': detail.checkedIn,
-     'checked-out': !detail.checkedIn
-     }"
-
-></span>
-     <!-- FIRST NAME AND LAST NAME WITH SPLIT -->
+<span class="status" [ngClass]=" {'checked-in': detail.checkedIn,'checked-out': !detail.checkedIn}"></span>
+<!-- FIRST NAME AND LAST NAME WITH SPLIT -->
 <div>
   @if (!editing) {
-  <span
-  class="my-0 text-white p-2 h4"
-  [ngStyle]="{
-  backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),
-  borderRadius:'0.7rem'
-  }">
-  {{detail.fullname.split(" ")[0]}} <span class="fw-bold">{{detail.fullname.split(" ")[1]}}</span>
-      </span>
+    <span
+      class="my-0 text-white p-2 h4"
+      [ngStyle]="{ backgroundColor:(detail.checkedIn ? '#2ecc71':'#c0392b'),borderRadius:'0.7rem'}"
+    >
+  {{ detail.fullname.split(" ")[0] }} <span class="fw-bold">{{ detail.fullname.split(" ")[1] }}</span>
+    </span>
+  } @else {
+    <!-- INPUT EDIT NAME -->
+    <input
+      class="editName"
+      [ngStyle]="{border: (detail.checkedIn ? '0.1rem solid #2ecc71':'0.1rem solid #c0392b')}"
+      type="text"
+      [value]="detail.fullname"
+      (input)="onNameChange(name.value)"
+      (click)="$event.stopPropagation()"
+      #name
+    >
   }
 </div>
-
-
-     <!-- INPUT EDIT NAME -->
-     <div>
-          <input
-          class="editName"
-          [ngStyle]="{
-               border: (detail.checkedIn ? '0.1rem solid #2ecc71':'0.1rem solid #c0392b')}"
-          *ngIf="editing"
-          type="text"
-          [value]="detail.fullname"
-          (input)="onNameChange(name.value)"
-          (click)="$event.stopPropagation()"
-          #name
-          >
-     </div>
 
 <!-- OTHER DATA -->
 <div class="container mt-2 mx-3">
   <div class="date">
-      {{ 'Check in date'}}: <span class="fw-bold">{{ detail.checkInDate ? (detail.checkInDate | date:'longDate') : 'Not checked In' }}</span>
+    {{ 'Check in date' }}: <span
+    class="fw-bold">{{ detail.checkInDate ? (detail.checkInDate | date:'longDate') : 'Not checked In' }}</span>
   </div>
   <div class="children">
-       {{ 'Children' }}: <span class="fw-bold">{{ detail.children?.length || 0}}</span>
+    {{ 'Children' }}: <span class="fw-bold">{{ detail.children?.length || 0 }}</span>
   </div>
   <!-- BUTTONS EDIT AND DELETE -->
   <div class="isCheckedIn d-flex flex-row">
-          {{ 'Check In'}}: <span class="fw-bold ms-1" [ngStyle]="{color: (detail.checkedIn ? '#2ecc71':'#c0392b')}">{{detail.checkedIn ? " Yes" : " No"}}</span>
-          <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit($event)"> {{editing? 'Done':'Edit'}} </button>
-          <button class="btn btn-sm btn-primary ms-1" (click)="onRemove($event)"> <i class="bi bi-trash2-fill"></i></button>
-     </div>
+    {{ 'Check In' }}: <span class="fw-bold ms-1"
+                            [ngStyle]="{color: (detail.checkedIn ? '#2ecc71':'#c0392b')}">{{ detail.checkedIn ? " Yes" : " No" }}</span>
+    <button class="btn btn-sm btn-primary  ms-auto" (click)="toggleEdit($event)"> {{ editing ? 'Done' : 'Edit' }}
+    </button>
+    <button class="btn btn-sm btn-primary ms-1" (click)="onRemove($event)"><i class="bi bi-trash2-fill"></i></button>
+  </div>
 </div>

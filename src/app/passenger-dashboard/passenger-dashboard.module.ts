@@ -12,6 +12,7 @@ import {ToastModule} from "primeng/toast";
 import {CardModule} from "primeng/card";
 import {PassengerCardComponent} from "./components/passenger-card/passenger-card.component";
 import {InputTextModule} from "primeng/inputtext";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -21,15 +22,16 @@ import {InputTextModule} from "primeng/inputtext";
     PassengerFormComponent,
     PassengerDialogDetailComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(ROUTES),
-    HttpClientModule,
-    DialogModule,
-    ToastModule,
-    CardModule,
-    InputTextModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(ROUTES),
+        HttpClientModule,
+        DialogModule,
+        ToastModule,
+        CardModule,
+        InputTextModule,
+        MatProgressBarModule
+    ],
   providers:[]
 })
 export class PassengerDashboardModule { }

@@ -1,35 +1,61 @@
+<!--TEST BUTTONS-->
 <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="test()">TEST</button>
 <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="test123()">123</button>
+
+<!--MESSAGE TOASTER-->
 <p-toast></p-toast>
+
+<!--MAIN CONTAINER - LEFT-->
 <div class="row">
   <div class="container col-xl-5 col-lg-6 col-md-10 col-sm-12 col-12 mt-5 mx-0 px-5">
     <!-- PASSENGER COUNTER -->
     <div class="row mb-5">
       <app-passenger-count class="col-md-6" [items]="Passengers"></app-passenger-count>
     </div>
-    <!--  HEADER AND NEW BTN NEXT TO EACH OTHER-->
+    <!--  HEADER AND BUTTON NEW PASSENGER-->
     <div class="d-flex flex-row">
       <h2>Airline Passengers</h2>
-      <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="newPassenger()"><i class="bi bi-person-plus-fill"></i> Add Passenger</button>
+      <button class="btn btn-sm btn-primary mb-1 ms-auto newButton" (click)="newPassenger()"><i
+        class="bi bi-person-plus-fill"></i> Add Passenger
+      </button>
     </div>
-    <ul class="app rounded-2">
-      <!-- PASSENGER CARD -->
-      <li
-        class="mb-3 p-3 border border-2 border-primary rounded-2"
-        [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
-        *ngFor="let passenger of Passengers"
-        (click)="showDialog(passenger.id)"
-      >
-        <app-passenger-card
-          [detail]="passenger"
-          (remove)="handleRemove($event)"
-          (edit)="handleEdit($event)"
-        ></app-passenger-card>
-      </li>
-    </ul>
+
+    @defer {
+      <ul class="app rounded-2">
+        <!-- PASSENGER CARD -->
+        @for (passenger of Passengers;track passenger.id;let count = $count;let idx = $index;let first = $first;let last = $last;let even = $even;let odd = $odd;) {
+          <div>{{ 'Count: ' + count }}</div>
+          <div>{{ 'Index: ' + idx }}</div>
+          <div>{{ 'Is first? :  ' + first }}</div>
+          <div>{{ 'Is last? : ' + last }}</div>
+          <div>{{ 'Is even? : ' + even }}</div>
+          <div>{{ 'Is odd? : ' + odd }}</div>
+          <li
+            class="mb-3 p-3 border border-2 border-primary rounded-2"
+            [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
+            (click)="showDialog(passenger.id)"
+          >
+            <app-passenger-card
+              [detail]="passenger"
+              (remove)="handleRemove($event)"
+              (edit)="handleEdit($event)"
+            ></app-passenger-card>
+          </li>
+        } @empty {
+          <h1>No Passengers</h1>
+        }
+      </ul>
+    } @loading () {
+      <mat-progress-bar
+        class="mt-1"
+        mode="indeterminate"
+        style="position: fixed"
+      ></mat-progress-bar>
+    }
   </div>
   <div class="container col-xl-5 col-lg-6 col-md-10 col-sm-12 col-12 levelingMT">
     <router-outlet></router-outlet>
+
   </div>
 </div>
 

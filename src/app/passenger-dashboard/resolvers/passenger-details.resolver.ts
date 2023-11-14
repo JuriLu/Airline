@@ -1,5 +1,5 @@
 import {ActivatedRouteSnapshot, ResolveFn, Router, RouterStateSnapshot} from '@angular/router';
-import {catchError, delay, EMPTY, Observable, of} from "rxjs";
+import {catchError, EMPTY, Observable} from "rxjs";
 import {Passenger} from "../interfaces/passenger.interface";
 import {PassengerDashboardService} from "../services/passenger-dashboard.service";
 import {inject} from "@angular/core";
