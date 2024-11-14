@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Passenger } from '../../interfaces/passenger.interface';
 
 @Component({
-  selector: 'app-passenger-count',
+  selector: 'air-passenger-count',
   template: `<div class="container-fluid">
     <h3>Airline Count</h3>
     <div class="h6">
@@ -15,7 +15,7 @@ export class PassengerCountComponent implements OnInit{
   @Input() items!:Passenger[]
 
   constructor(){
-    
+
   }
 
   ngOnInit(){

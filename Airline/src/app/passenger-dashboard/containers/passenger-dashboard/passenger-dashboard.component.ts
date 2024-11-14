@@ -6,7 +6,7 @@ import { PassengerDashboardService } from '../../services/passenger-dashboard.se
 
 
 @Component({
-  selector: 'app-passenger-dashboard',
+  selector: 'air-passenger-dashboard',
   templateUrl: './passenger-dashboard.component.html',
   styleUrls: ['./passenger-dashboard.component.scss']
 })

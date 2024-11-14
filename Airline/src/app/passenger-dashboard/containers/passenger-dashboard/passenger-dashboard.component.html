@@ -1,22 +1,22 @@
 <div class="container mx-0 px-5 col-4 mt-5 app">
           <!-- PASSENGER COUNTER -->
      <div class="row  mb-5">
-          <app-passenger-count class="col-md-6" [items]="Passengers"></app-passenger-count>
+          <air-passenger-count class="col-md-6" [items]="Passengers"></air-passenger-count>
      </div>
-     
+
      <h3>Airline Passengers</h3>
      <ul>
           <!-- PASSENGER CARD -->
-          <li 
-          class="mb-3 p-3 border border-2 border-primary rounded-4" 
+          <li
+          class="mb-3 p-3 border border-2 border-primary rounded-4"
            [ngClass]="{'border-success':passenger.checkedIn,'border-danger': !passenger.checkedIn}"
-          *ngFor="let passenger of Passengers" 
+          *ngFor="let passenger of Passengers"
           >
-          <app-passenger-detail  
+          <air-passenger-detail
           [detail]="passenger"
           (remove)="handleRemove($event)"
           (edit)="handleEdit($event)"
-          ></app-passenger-detail>
+          ></air-passenger-detail>
           </li>
      </ul>
 </div>

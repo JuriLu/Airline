@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashboard.module';
+import {HeaderComponent} from "./header/header.component";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PassengerDashboardModule } from './passenger-dashboard/passenger-dashbo
     BrowserModule,
     AppRoutingModule,
     //custom Modules
-    PassengerDashboardModule
+    PassengerDashboardModule,
+    HeaderComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

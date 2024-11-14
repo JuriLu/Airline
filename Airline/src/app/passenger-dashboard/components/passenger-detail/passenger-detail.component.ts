@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Passenger } from '../../interfaces/passenger.interface';
 
 @Component({
-  selector: 'app-passenger-detail',
+  selector: 'air-passenger-detail',
   templateUrl: './passenger-detail.component.html',
   styleUrls: ['./passenger-detail.component.scss']
 })
@@ -14,7 +14,7 @@ export class PassengerDetailComponent {
   editing: boolean = false;
 
   constructor(){}
-  
+
   onNameChange(value: string) {
     this.detail.fullname = value
   }
@@ -24,7 +24,7 @@ export class PassengerDetailComponent {
       this.edit.emit(this.detail)
     }
       this.editing = !this.editing
-      
+
   }
 
   onRemove(){
